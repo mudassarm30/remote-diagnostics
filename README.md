@@ -165,55 +165,37 @@ Diagnostics must start from validated data; incorrect assumptions at this stage 
 
 ---
 
-### Step 2 – Sensor Understanding & Selection
-
+### Step 2 – Sensor Selection & Rule-Based Diagnostics
 
 - Explore sensor behavior across engines
-- Identify sensors that:
-  - Show gradual degradation
-  - Exhibit variance changes
-  - Are informative for diagnostics
-  - Ignore sensors that are flat or noisy-only
-- Select a **small subset (4–6 sensors)**
-
-👉 **See the [02_rule_based_diagnostics.ipynb](notebooks/02_rule_based_diagnostics.ipynb) notebook for this step.**
-
-**Rationale**  
-In real systems, diagnostics focus on a subset of trusted, informative sensors rather than all available signals.
-
----
-
-### Step 3 – Rule-Based Diagnostics
-
-- Define simple, explainable indicators:
+- Identify and select a small subset of sensors that reliably reflect degradation
+- Apply rule-based diagnostic methods:
   - Rolling mean drift
   - Rolling variance increase
   - Threshold-based alerts
 - Establish baseline behavior from early life cycles
 
+👉 **See the [02_rule_based_diagnostics.ipynb](notebooks/02_rule_based_diagnostics.ipynb) notebook for both sensor selection and rule-based diagnostics.**
+
 **Rationale**  
-Rule-based analytics are transparent, interpretable, and form the backbone of industrial diagnostic systems.
+In industrial diagnostics, a transparent workflow combines careful sensor selection with interpretable rule-based analytics. This ensures that only trusted, informative sensors are used and that diagnostic logic remains explainable to domain experts.
 
 ---
 
-### Step 4 – ML-Assisted Anomaly Detection
+### Step 3 – ML-Assisted & Combined Diagnostic Logic
 
-- Apply unsupervised methods (e.g. Isolation Forest)
+- Apply unsupervised ML methods (e.g. Isolation Forest)
 - Detect multivariate deviations not captured by single rules
-- Use ML as **support**, not replacement, for rules
-
-**Rationale**  
-Machine learning complements rules by identifying subtle patterns while preserving explainability.
-
----
-
-### Step 5 – Combined Diagnostic Logic
-
+- Use ML as support, not replacement, for rules
 - Combine rule-based and ML outputs:
   - Rule + ML → High confidence
   - Rule only → Monitor
   - ML only → Investigate
 
+👉 **See the [03_ml_anomaly_detection.ipynb](notebooks/03_ml_anomaly_detection.ipynb) notebook for ML-assisted anomaly detection and combined logic.**
+
 **Rationale**  
-This approach reduces false positives and builds trust in analytics.
+Combining interpretable rule-based analytics with machine learning enables robust, explainable anomaly detection. ML complements rules by identifying subtle patterns, and combining both approaches reduces false positives and builds trust in analytics.
+
+---
 
