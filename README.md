@@ -148,6 +148,7 @@ Indicator magnitude must be interpreted relative to the sensor’s healthy noise
 
 ### Step 1 – Data Loading & Validation
 
+
 - Load raw FD001 data
 - Assign explicit column names
 - Validate:
@@ -157,12 +158,15 @@ Indicator magnitude must be interpreted relative to the sensor’s healthy noise
   - Operating conditions
 - Produce a clean, reproducible dataset
 
+👉 **See the [01_data_exploration.ipynb](notebooks/01_data_exploration.ipynb) notebook for this step.**
+
 **Rationale**  
 Diagnostics must start from validated data; incorrect assumptions at this stage propagate errors downstream.
 
 ---
 
 ### Step 2 – Sensor Understanding & Selection
+
 
 - Explore sensor behavior across engines
 - Identify sensors that:
@@ -171,6 +175,8 @@ Diagnostics must start from validated data; incorrect assumptions at this stage 
   - Are informative for diagnostics
   - Ignore sensors that are flat or noisy-only
 - Select a **small subset (4–6 sensors)**
+
+👉 **See the [02_rule_based_diagnostics.ipynb](notebooks/02_rule_based_diagnostics.ipynb) notebook for this step.**
 
 **Rationale**  
 In real systems, diagnostics focus on a subset of trusted, informative sensors rather than all available signals.
